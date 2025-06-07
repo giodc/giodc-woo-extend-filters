@@ -1,17 +1,19 @@
 <?php
 /**
- * Plugin Name: Giodc Woo Extend Filters
- * Plugin URI: https://example.com/plugins/giodc-woo-extend-filters
- * Description: Extends WooCommerce with additional filter options in a sidebar widget (On Sale and In Stock filters).
+ * Plugin Name: GIODC Woo Extend Filters
+ * Plugin URI: https://example.com/giodc-woo-extend-filters
+ * Description: Adds extended filter options for WooCommerce products including on sale, in stock, and recent products filters.
  * Version: 1.0.0
  * Author: Giovanni De Carlo
- * Author URI: https://giodc.com
+ * Author URI: https://example.com
  * Text Domain: giodc-woo-extend-filters
  * Domain Path: /languages
  * Requires at least: 5.0
  * Requires PHP: 7.2
  * WC requires at least: 3.0
  * WC tested up to: 8.0
+ * Woo: 12345:342928dfsfhsf8429842374wdf4234sfd
+ * WooCommerce: true
  *
  * @package GIODC_Woo_Extend_Filters
  */
@@ -30,13 +32,16 @@ define( 'GIODC_WEF_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
  * Check if WooCommerce is active
  */
 function giodc_wef_is_woocommerce_active() {
-    $active_plugins = (array) get_option( 'active_plugins', array() );
-    
-    if ( is_multisite() ) {
-        $active_plugins = array_merge( $active_plugins, get_site_option( 'active_sitewide_plugins', array() ) );
+    if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+        if ( is_multisite() ) {
+            if ( ! array_key_exists( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_site_option( 'active_sitewide_plugins', array() ) ) ) ) {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
-    
-    return in_array( 'woocommerce/woocommerce.php', $active_plugins ) || array_key_exists( 'woocommerce/woocommerce.php', $active_plugins );
+    return true;
 }
 
 /**
@@ -77,8 +82,31 @@ function giodc_wef_deactivate() {
     // Deactivation tasks if needed
 }
 
+/**
+ * Declare compatibility with WooCommerce HPOS (High-Performance Order Storage)
+ */
+function giodc_wef_declare_hpos_compatibility() {
+    // Using function_exists to check for WooCommerce 6.X+ with HPOS feature
+    if ( function_exists( 'wc_get_container' ) ) {
+        // Use class_exists without namespace escaping for better compatibility
+        $features_util_class = 'Automattic\WooCommerce\Utilities\FeaturesUtil';
+        if ( class_exists( $features_util_class ) ) {
+            // Use call_user_func to avoid namespace escaping issues
+            call_user_func( 
+                array( $features_util_class, 'declare_compatibility' ),
+                'custom_order_tables',
+                __FILE__,
+                true
+            );
+        }
+    }
+}
+
 // Check if WooCommerce is active before initializing the plugin
 if ( giodc_wef_is_woocommerce_active() ) {
+    // Declare HPOS compatibility
+    add_action( 'before_woocommerce_init', 'giodc_wef_declare_hpos_compatibility' );
+    
     add_action( 'plugins_loaded', 'giodc_wef_init' );
     register_activation_hook( __FILE__, 'giodc_wef_activate' );
     register_deactivation_hook( __FILE__, 'giodc_wef_deactivate' );
