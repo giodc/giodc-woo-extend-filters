@@ -1,0 +1,47 @@
+.giodc-wef-widget {
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.giodc-wef-filter-form {
+    margin-top: 10px;
+}
+
+.giodc-wef-filter-option {
+    margin-bottom: 10px;
+}
+
+.giodc-wef-filter-option label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.giodc-wef-filter-option input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.giodc-wef-filter-actions {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.giodc-wef-reset-filters {
+    font-size: 0.9em;
+    text-decoration: none;
+}
+
+.giodc-wef-shortcode-widget {
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+.giodc-wef-shortcode-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}

@@ -1,0 +1,80 @@
+# Copyright (C) 2025 GIODC
+# This file is distributed under the same license as the GIODC Woo Extend Filters plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: GIODC Woo Extend Filters 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/giodc-woo-extend-filters\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-06-07T13:06:27-06:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.0\n"
+"X-Domain: giodc-woo-extend-filters\n"
+
+#. Plugin Name of the plugin
+msgid "GIODC Woo Extend Filters"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://example.com/plugins/giodc-woo-extend-filters"
+msgstr ""
+
+#. Description of the plugin
+msgid "Extends WooCommerce with additional filter options in a sidebar widget (On Sale and In Stock filters)."
+msgstr ""
+
+#. Author of the plugin
+msgid "GIODC"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://example.com"
+msgstr ""
+
+#: includes/class-giodc-wef-widget.php:24
+msgid "GIODC Woo Extended Filters"
+msgstr ""
+
+#: includes/class-giodc-wef-widget.php:26
+msgid "Display additional WooCommerce filters (On Sale and In Stock)"
+msgstr ""
+
+#: includes/class-giodc-wef-widget.php:48
+#: includes/class-giodc-wef-widget.php:128
+msgid "Product Filters"
+msgstr ""
+
+#: includes/class-giodc-wef-widget.php:77
+msgid "On Sale?"
+msgstr ""
+
+#: includes/class-giodc-wef-widget.php:83
+msgid "In Stock?"
+msgstr ""
+
+#: includes/class-giodc-wef-widget.php:89
+msgid "Recent Products?"
+msgstr ""
+
+#: includes/class-giodc-wef-widget.php:87
+msgid "Apply Filters"
+msgstr ""
+
+#: includes/class-giodc-wef-widget.php:90
+msgid "Reset Filters"
+msgstr ""
+
+#: includes/class-giodc-wef-widget.php:129
+msgid "Title:"
+msgstr ""
+
+#: includes/class-giodc-wef-widget.php:135
+msgid "This widget adds \"On Sale\" and \"In Stock\" filter options to your WooCommerce shop."
+msgstr ""
+
+#: includes/class-giodc-wef-widget.php:138
+msgid "You can also use the shortcode [giodc_wef_filters] to display these filters anywhere."
+msgstr ""
